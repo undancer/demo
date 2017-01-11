@@ -9,9 +9,10 @@
 #import "SSDownloader.h"
 #import <AFNetworking.h>
 
-@interface SSDownloader () <NSURLSessionDownloadDelegate>
+@interface SSDownloader ()
 
 @property (strong, nonatomic) AFURLSessionManager *sessionManager;
+@property (strong, nonatomic) NSURLSessionDownloadTask *downloadTask;
 
 @end
 
@@ -35,30 +36,29 @@
 
 #pragma mark - Download
 
-static NSURLSessionDownloadTask *task;
 - (void)downloadWithURL:(NSString *)url
                progress:(void (^)(NSProgress *))progress
                complete:(void (^)(NSURLResponse *, NSURL *, NSError *))complete {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     
-    task = [self.sessionManager downloadTaskWithRequest:request
-                                               progress:progress
-                                            destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-                                                   return [self.fileURL URLByAppendingPathComponent:response.suggestedFilename];
-                                               } completionHandler:complete];
-    [task resume];
+    self.downloadTask = [self.sessionManager downloadTaskWithRequest:request
+                                                            progress:progress
+                                                         destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+                                                             return [self.fileURL URLByAppendingPathComponent:response.suggestedFilename];
+                                                         } completionHandler:complete];
+    [self.downloadTask resume];
 }
 
 - (void)suspend {
-    [task suspend];
+    [self.downloadTask suspend];
 }
 
 - (void)resume {
-    [task resume];
+    [self.downloadTask resume];
 }
 
 - (void)cancel {
-    [task cancel];
+    [self.downloadTask cancel];
 }
 
 @end
