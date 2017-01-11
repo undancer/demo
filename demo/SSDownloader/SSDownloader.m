@@ -39,8 +39,8 @@
 - (void)downloadWithURL:(NSString *)url
                progress:(void (^)(NSProgress *))progress
                complete:(void (^)(NSURLResponse *, NSURL *, NSError *))complete {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [[NSURLCache sharedURLCache] removeCachedResponseForRequest:request];
     self.downloadTask = [self.sessionManager downloadTaskWithRequest:request
                                                             progress:progress
                                                          destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
