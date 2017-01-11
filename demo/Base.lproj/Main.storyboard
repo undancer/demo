@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YzV-vU-FFL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Demo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,84 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6L-nU-ENW">
+                                <rect key="frame" x="166.5" y="114" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y14-CZ-RJE">
+                                <rect key="frame" x="20" y="226.5" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="star:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ic-qy-CJn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vsf-I4-Gbg">
+                                <rect key="frame" x="310" y="226.5" width="45" height="30"/>
+                                <state key="normal" title="cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dhJ-1E-reI"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="64Q-3t-QRH">
+                                <rect key="frame" x="20" y="185" width="335" height="2.5"/>
+                                <color key="trackTintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoX-M7-ZRe">
+                                <rect key="frame" x="171.5" y="226" width="31" height="30"/>
+                                <state key="normal" title="stop"/>
+                                <connections>
+                                    <action selector="suspend_resume:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WAg-x3-hYy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="64Q-3t-QRH" firstAttribute="top" secondItem="q6L-nU-ENW" secondAttribute="bottom" constant="50" id="14U-Eh-djH"/>
+                            <constraint firstItem="q6L-nU-ENW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Bgx-ZF-ql1"/>
+                            <constraint firstItem="Y14-CZ-RJE" firstAttribute="top" secondItem="64Q-3t-QRH" secondAttribute="bottom" constant="40" id="LaQ-X7-Hg6"/>
+                            <constraint firstItem="Y14-CZ-RJE" firstAttribute="leading" secondItem="64Q-3t-QRH" secondAttribute="leading" id="VPm-D3-KwS"/>
+                            <constraint firstItem="q6L-nU-ENW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W59-yQ-JC3"/>
+                            <constraint firstItem="64Q-3t-QRH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ge0-KJ-DZD"/>
+                            <constraint firstAttribute="trailing" secondItem="64Q-3t-QRH" secondAttribute="trailing" constant="20" id="haS-JA-ZR9"/>
+                            <constraint firstItem="Vsf-I4-Gbg" firstAttribute="trailing" secondItem="64Q-3t-QRH" secondAttribute="trailing" id="ix9-K8-WL5"/>
+                            <constraint firstItem="EoX-M7-ZRe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jwM-sI-B2U"/>
+                            <constraint firstItem="Vsf-I4-Gbg" firstAttribute="top" secondItem="Y14-CZ-RJE" secondAttribute="top" id="qIt-Nw-vWf"/>
+                            <constraint firstItem="EoX-M7-ZRe" firstAttribute="top" secondItem="Y14-CZ-RJE" secondAttribute="top" id="y6T-5E-91p"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Demo" id="PUY-u6-2gR"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="Vsf-I4-Gbg" id="fUy-Qi-qN8"/>
+                        <outlet property="progressView" destination="64Q-3t-QRH" id="GRw-Q5-1hD"/>
+                        <outlet property="startButton" destination="Y14-CZ-RJE" id="7Ds-dz-MGB"/>
+                        <outlet property="stopButton" destination="EoX-M7-ZRe" id="HFo-Y2-9lA"/>
+                        <outlet property="titleLabel" destination="q6L-nU-ENW" id="M9j-xX-7El"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="778" y="-544"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n1g-UP-Mhv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YzV-vU-FFL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Js7-EX-ymW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="U7h-ro-8oC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a02-fO-NLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.600000000000001" y="-543.77811094452773"/>
         </scene>
     </scenes>
 </document>

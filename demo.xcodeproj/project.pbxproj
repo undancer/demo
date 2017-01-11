@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4BECC8B91878EF2710BF6F27 /* libPods-demoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 683CA1F78012C93AE1B235CB /* libPods-demoUITests.a */; };
 		65339899F3E35D481FE31A42 /* libPods-demoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A520588AB446E4D8A539E139 /* libPods-demoTests.a */; };
+		A72B5DD01E2662EA00C94E36 /* SSDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A72B5DCF1E2662EA00C94E36 /* SSDownloader.m */; };
 		CE4B224CD4A5D812CDDC73B3 /* libPods-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 197A419D7C56A9E8D72FC46D /* libPods-demo.a */; };
 		E44728F01E26185E001B3C7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E44728EF1E26185E001B3C7E /* main.m */; };
 		E44728F31E26185E001B3C7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E44728F21E26185E001B3C7E /* AppDelegate.m */; };
@@ -46,6 +47,8 @@
 		683CA1F78012C93AE1B235CB /* libPods-demoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8029D27036BFE575D02B188E /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
 		A520588AB446E4D8A539E139 /* libPods-demoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72B5DCE1E2662EA00C94E36 /* SSDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDownloader.h; sourceTree = "<group>"; };
+		A72B5DCF1E2662EA00C94E36 /* SSDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDownloader.m; sourceTree = "<group>"; };
 		B6CE9E5A7F10023FFBC29947 /* Pods-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-demoTests/Pods-demoTests.release.xcconfig"; sourceTree = "<group>"; };
 		E44728EB1E26185E001B3C7E /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44728EF1E26185E001B3C7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +109,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A72B5DCD1E2662EA00C94E36 /* SSDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				A72B5DCE1E2662EA00C94E36 /* SSDownloader.h */,
+				A72B5DCF1E2662EA00C94E36 /* SSDownloader.m */,
+			);
+			path = SSDownloader;
+			sourceTree = "<group>";
+		};
 		BA5DFADECC35857FE5EAF16A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,7 @@
 		E44728ED1E26185E001B3C7E /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				A72B5DCD1E2662EA00C94E36 /* SSDownloader */,
 				E44728F11E26185E001B3C7E /* AppDelegate.h */,
 				E44728F21E26185E001B3C7E /* AppDelegate.m */,
 				E44728F41E26185E001B3C7E /* ViewController.h */,
@@ -462,6 +475,7 @@
 			files = (
 				E44728F61E26185E001B3C7E /* ViewController.m in Sources */,
 				E44728F31E26185E001B3C7E /* AppDelegate.m in Sources */,
+				A72B5DD01E2662EA00C94E36 /* SSDownloader.m in Sources */,
 				E44728F01E26185E001B3C7E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +714,7 @@
 				E447291A1E26185E001B3C7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E447291B1E26185E001B3C7E /* Build configuration list for PBXNativeTarget "demoTests" */ = {
 			isa = XCConfigurationList;
@@ -708,6 +723,7 @@
 				E447291D1E26185E001B3C7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E447291E1E26185E001B3C7E /* Build configuration list for PBXNativeTarget "demoUITests" */ = {
 			isa = XCConfigurationList;
@@ -716,6 +732,7 @@
 				E44729201E26185E001B3C7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
