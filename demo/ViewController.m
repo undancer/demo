@@ -11,13 +11,15 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
-@property (weak, nonatomic) IBOutlet UIButton *stopButton;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property(weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property(weak, nonatomic) IBOutlet UIButton *stopButton;
+@property(weak, nonatomic) IBOutlet UIButton *startButton;
+@property(weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-@property (nonatomic) BOOL isDownloading;
+@property(nonatomic) BOOL isDownloading;
+
+@property(nonatomic) NSString *urlString;
 
 @end
 
@@ -26,8 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    self.urlString = @"https://assets.boxfish.cn/video/boxfish.mp4";
+
     [SSDownloader downloader].fileURL = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-    self.titleLabel.text = @"https://assets.boxfish.cn/video/boxfish.mp4";
+    self.titleLabel.text = self.urlString;
 }
 
 - (IBAction)star:(id)sender {
@@ -35,21 +40,24 @@
     self.stopButton.enabled = YES;
     self.isDownloading = YES;
     [self updateUserInterface];
-    [[SSDownloader downloader] downloadWithURL:@"https://assets.boxfish.cn/video/boxfish.mp4"
-                                      progress:^(NSProgress *progress) {
-                                          dispatch_async(dispatch_get_main_queue(), ^{
-                                              self.progressView.progress = progress.fractionCompleted;
-                                              NSLog(@"progress:%@",@(progress.fractionCompleted));
-                                          });
-                                      } complete:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-                                          if (error) {
-                                              NSLog(@"error:%@",error.localizedDescription);
-                                          }
-                                          dispatch_async(dispatch_get_main_queue(), ^{
-                                              self.isDownloading = NO;
-                                              [self updateUserInterface];
-                                          });
-                                      }];
+    [[SSDownloader downloader]
+            downloadWithURL:self.urlString
+                   progress:^(NSProgress *progress) {
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           self.progressView.progress = progress.fractionCompleted;
+                           NSLog(@"progress:%@", @(progress.fractionCompleted));
+                       });
+                   }
+                   complete:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                       if (error) {
+                           NSLog(@"error:%@", error.localizedDescription);
+                       }
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           self.isDownloading = NO;
+                           [self updateUserInterface];
+                       });
+                   }
+    ];
 }
 
 - (IBAction)cancel:(id)sender {
